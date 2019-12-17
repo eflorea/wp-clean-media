@@ -1,0 +1,3 @@
+/**
+ * Wp Clean Media
+ */
