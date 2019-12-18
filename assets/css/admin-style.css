@@ -1,0 +1,10 @@
+/**
+ * WpCleanMedia - Admin Styles
+ */
+#wpcm-scanning {
+	display: none;
+}
+#wpcm-scanning.active {
+	display: flex;
+	align-items: center;
+}

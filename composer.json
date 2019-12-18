@@ -1,10 +1,10 @@
 {
-  "name": "10up/wp-clean-media",
+  "name": "eflorea/wp-clean-media",
   "description": "Wp Clean Media",
   "authors": [
     {
-      "name": "Author",
-      "email": "info@10up.com"
+      "name": "Eduard Florea",
+      "email": "eduard@florea.com"
     }
   ],
   "require": {
