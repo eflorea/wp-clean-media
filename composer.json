@@ -1,6 +1,7 @@
 {
   "name": "eflorea/wp-clean-media",
   "description": "Wp Clean Media",
+  "type"       : "wordpress-plugin",
   "authors": [
     {
       "name": "Eduard Florea",
