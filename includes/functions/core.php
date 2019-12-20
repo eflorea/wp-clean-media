@@ -117,9 +117,6 @@ function clean_media_screen() {
  * @return void
  */
 function activate() {
-	// First load the init scripts in case any rewrite functionality is being loaded.
-	init();
-	flush_rewrite_rules();
 }
 
 /**
@@ -130,7 +127,6 @@ function activate() {
  * @return void
  */
 function deactivate() {
-
 }
 
 /**

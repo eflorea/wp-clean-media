@@ -3,7 +3,7 @@
  * Plugin Name: WP Clean Media
  * Plugin URI: https://github.com/eflorea/wp-clean-media
  * Description: A small WP plugin to clean media files
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      Eduard Florea
  * Author URI:  https://florea.com
  * Text Domain: wp-clean-media
@@ -13,7 +13,7 @@
  */
 
 // Useful global constants.
-define( 'WP_CLEAN_MEDIA_VERSION', '1.0.1' );
+define( 'WP_CLEAN_MEDIA_VERSION', '1.0.2' );
 define( 'WP_CLEAN_MEDIA_URL', plugin_dir_url( __FILE__ ) );
 define( 'WP_CLEAN_MEDIA_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WP_CLEAN_MEDIA_INC', WP_CLEAN_MEDIA_PATH . 'includes/' );

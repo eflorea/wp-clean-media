@@ -2,7 +2,7 @@
   "name": "eflorea/wp-clean-media",
   "description": "Wp Clean Media",
   "type"       : "wordpress-plugin",
-  "version"    : "1.0.1",
+  "version"    : "1.0.2",
   "authors": [
     {
       "name": "Eduard Florea",
