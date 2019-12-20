@@ -76,11 +76,16 @@ function admin_menu() {
  */
 function clean_media_screen() {
 	$stats = \WpCleanMedia\Scan\get_stats();
+	wp_localize_script(
+		'wp_clean_media_admin',
+		'wpcm_is_running',
+		\WpCleanMedia\Scan\is_active() ? '1' : '0'
+	);
+	$scanning_active = \WpCleanMedia\Scan\is_active();
 	?>
 	<div class="wrap">
 		<h1><?php echo esc_html__( 'WP Clean Media', 'wpcm' ); ?></h1>
 		<p><?php echo esc_html__( 'In this section you will be able to scan the entire site for files that are not being used. Please use this plugin with caution.', 'wpcm' ); ?></p>
-
 		<h2><?php echo esc_html__( 'Quick stats:', 'wpcm' ); ?></h2>
 		<div id="dashboard-widgets">
 			<div class="postbox-container">
@@ -88,19 +93,15 @@ function clean_media_screen() {
 					<div class="inside">
 						<div class="main">
 							<ul>
-								<li>Total attachments: <?php echo esc_html( $stats['total_posts'] ); ?></li>
-								<li>Scanned: <?php echo esc_html( $stats['total_scanned'] ); ?> </li>
+								<li>Total attachments: <span id="wpcm-total-attachments"><?php echo esc_html( $stats['total_posts'] ); ?></span></li>
+								<li>Scanned: <span id="wpcm-total-scanned"><?php echo esc_html( $stats['total_scanned'] ); ?></span></li>
 							</ul>
-							<div id="wpcm-scanning">
-								<span class="spinner is-active"></span> Scan in progress
+							<div id="wpcm-scanning" <?php if ( ! $scanning_active ) : ?>class="hide"<?php endif; // phpcs:ignore ?>>
+								<span class="spinner is-active"></span> Scan in progress. The scan ONLY runs as long as this page is opened.
 							</div>
-							<?php if ( ! \WpCleanMedia\Scan\is_active() ) : ?>
-								<script>var wpcm_is_running = false;</script>
-								<button type="button" class="button button-primary" id="wpcm-scan-now">Scan Now</button>
-							<?php else : ?>
-								<script>var wpcm_is_running = true;</script>
-								<button type="button" class="button button-primary" id="wpcm-stop-now">Stop Scan</button>
-							<?php endif; ?>
+							<button type="button" class="button button-primary <?php if ( $scanning_active ) : ?>hide<?php endif; // phpcs:ignore ?>" id="wpcm-scan-now">Scan Now</button>
+							<button type="button" class="button button-primary <?php if ( ! $scanning_active ) : ?>hide<?php endif; // phpcs:ignore ?>" id="wpcm-stop-now">Stop Scan</button>
+							<button type="button" class="button" id="wpcm-reset-now">Reset Data</button>
 						</div>
 					</div>
 				</div>

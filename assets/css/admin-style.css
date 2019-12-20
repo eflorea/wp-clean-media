@@ -2,9 +2,12 @@
  * WpCleanMedia - Admin Styles
  */
 #wpcm-scanning {
-	display: none;
-}
-#wpcm-scanning.active {
 	display: flex;
 	align-items: center;
+	margin-bottom: 1rem;
+}
+#wpcm-scanning.hide,
+#wpcm-scan-now.hide,
+#wpcm-stop-now.hide {
+	display: none;
 }
