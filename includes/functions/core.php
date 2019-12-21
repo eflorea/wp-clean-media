@@ -93,15 +93,15 @@ function clean_media_screen() {
 					<div class="inside">
 						<div class="main">
 							<ul>
-								<li>Total attachments: <span id="wpcm-total-attachments"><?php echo esc_html( $stats['total_posts'] ); ?></span></li>
-								<li>Scanned: <span id="wpcm-total-scanned"><?php echo esc_html( $stats['total_scanned'] ); ?></span></li>
+								<li><?php echo esc_html__( 'Total Attachments:', 'wpcm' ); ?> <span id="wpcm-total-attachments"><?php echo esc_html( $stats['total_posts'] ); ?></span></li>
+								<li><?php echo esc_html__( 'Scanned', 'wpcm' ); ?> <span id="wpcm-total-scanned"><?php echo esc_html( $stats['total_scanned'] ); ?></span></li>
 							</ul>
 							<div id="wpcm-scanning" <?php if ( ! $scanning_active ) : ?>class="hide"<?php endif; // phpcs:ignore ?>>
-								<span class="spinner is-active"></span> Scan in progress. The scan ONLY runs as long as this page is opened.
+								<span class="spinner is-active"></span> <?php echo esc_html__( 'Scan in progress. The scan ONLY runs as long as this page is opened.', 'wpcm' ); ?>
 							</div>
-							<button type="button" class="button button-primary <?php if ( $scanning_active ) : ?>hide<?php endif; // phpcs:ignore ?>" id="wpcm-scan-now">Scan Now</button>
-							<button type="button" class="button button-primary <?php if ( ! $scanning_active ) : ?>hide<?php endif; // phpcs:ignore ?>" id="wpcm-stop-now">Stop Scan</button>
-							<button type="button" class="button" id="wpcm-reset-now">Reset Data</button>
+							<button type="button" class="button button-primary <?php if ( $scanning_active ) : ?>hide<?php endif; // phpcs:ignore ?>" id="wpcm-scan-now"><?php echo esc_html__( 'Scan Now', 'wpcm' ); ?></button>
+							<button type="button" class="button button-primary <?php if ( ! $scanning_active ) : ?>hide<?php endif; // phpcs:ignore ?>" id="wpcm-stop-now"><?php echo esc_html__( 'Stop Scan', 'wpcm' ); ?></button>
+							<button type="button" class="button" id="wpcm-reset-now"><?php echo esc_html__( 'Reset Data', 'wpcm' ); ?></button>
 						</div>
 					</div>
 				</div>

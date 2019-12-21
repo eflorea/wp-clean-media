@@ -189,6 +189,10 @@ function find_file( $post_id ) {
 	$full_path = get_attached_file( $post_id );
 	$main_file = clean_file_name( $full_path );
 
+	if ( empty( $main_file ) ) {
+		return false;
+	}
+
 	// check if it's beeing used.
 	// check attachment to post.
 	$results = $wpdb->get_results( $wpdb->prepare( ' select post_id from ' . $wpdb->postmeta . ' where meta_key = %s and meta_value = %d', '_thumbnail_id', $post_id ) ); // phpcs:ignore
@@ -233,7 +237,7 @@ function find_file( $post_id ) {
 function clean_file_name( $path ) {
 	$content_dir = substr( wp_upload_dir()['baseurl'], 1 + strlen( get_site_url() ) );
 	$dir_index   = strpos( $path, $content_dir );
-	if ( falce === $dir_index ) {
+	if ( false === $dir_index ) {
 		$file = $path;
 	} else {
 		// Remove first part of the path leaving yyyy/mm/filename.ext.
