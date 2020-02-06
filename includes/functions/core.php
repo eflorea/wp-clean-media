@@ -65,16 +65,27 @@ function admin_menu() {
 	add_media_page(
 		__( 'WP Clean Media', 'wpcm' ),
 		__( 'Clean Files', 'wpcm' ),
-		'manage_options',
+		'delete_others_pages',
 		'wp-clean-media',
 		__NAMESPACE__ . '\clean_media_screen'
 	);
 };
 
 /**
+ * Check permissions.
+ */
+function user_has_permission() {
+	return current_user_can( 'delete_others_pages' );
+}
+
+/**
  * Clean Media Screen
  */
 function clean_media_screen() {
+	// check permissions.
+	if ( ! user_has_permission() ) {
+		return wp_die( 'Permission denied.' );
+	}
 	$stats = \WpCleanMedia\Scan\get_stats();
 	wp_localize_script(
 		'wp_clean_media_admin',

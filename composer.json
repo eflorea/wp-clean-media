@@ -2,7 +2,7 @@
   "name": "eflorea/wp-clean-media",
   "description": "Wp Clean Media",
   "type"       : "wordpress-plugin",
-  "version"    : "1.0.3",
+  "version"    : "1.0.4",
   "authors": [
     {
       "name": "Eduard Florea",
@@ -23,7 +23,7 @@
     "10up/phpcs-composer": "dev-master"
   },
   "scripts": {
-    "lint": "phpcs .",
+    "lint": "phpcs --standard=WordPress --extensions=php --ignore=vendor/*,node_modules/* .",
     "lint-fix": "phpcbf ."
   }
 }

@@ -8,6 +8,7 @@
 namespace WpCleanMedia\Scan;
 
 use \WP_Error as WP_Error;
+use WpCleanMedia\Core;
 
 /**
  * Default setup routine
@@ -57,6 +58,9 @@ function is_active() {
  * Start scanning
  */
 function start_scan() {
+	if ( ! Core\user_has_permission() ) {
+		return;
+	}
 	update_option( 'wpcm_scanning', 'yes' );
 }
 
@@ -64,6 +68,9 @@ function start_scan() {
  * End/Pause scan
  */
 function stop_scan() {
+	if ( ! Core\user_has_permission() ) {
+		return;
+	}
 	update_option( 'wpcm_scanning', 'no' );
 }
 
@@ -71,6 +78,9 @@ function stop_scan() {
  * Reset scan
  */
 function reset_scan() {
+	if ( ! Core\user_has_permission() ) {
+		return;
+	}
 	stop_scan();
 
 	global $wpdb;
@@ -119,7 +129,9 @@ function get_stats() {
  * Scan attachments
  */
 function scan_attachments() {
-
+	if ( ! Core\user_has_permission() ) {
+		return;
+	}
 	// check if this is a first request to scan.
 	$start_scan = intval( filter_input( INPUT_POST, 'wpcm_initiate_scan', FILTER_SANITIZE_NUMBER_INT ) );
 	if ( 1 === $start_scan ) {
